@@ -2,11 +2,17 @@ library(shiny)
 library(plotly)
 
 shinyUI(fluidPage(
-		  titlePanel("Movie Ratings!"),
-		  sidebarPanel(
-			       sliderInput("bins", "Number of bins:", min = 1, max = 50, value = 10)
-			       ),
+		  titlePanel("Animal species structure and diversity"),
+		  checkboxInput(inputId = "large",
+				      label = strong("Show interspecies values"),
+				            value = FALSE),
+
+		    checkboxInput(inputId = "pics",
+				        label = strong("Show density estimate"),
+					      value = FALSE),
+		  
+		  ),
 		  mainPanel(
-			    plotlyOutput("trendPlot")
+			    plotlyOutput("popphyl_data")
 			    )
 		  ))
